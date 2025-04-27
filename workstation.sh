@@ -64,10 +64,10 @@ eksctl version
 VALIDATE $? "eksctl installation"
 
 
-# # kubens
-# git clone https://github.com/ahmetb/kubectx /opt/kubectx
-# ln -s /opt/kubectx/kubens /usr/local/bin/kubens
-# VALIDATE $? "kubens installation"
+# kubens
+git clone https://github.com/ahmetb/kubectx /opt/kubectx
+ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+VALIDATE $? "kubens installation"
 
 
 # Helm
@@ -80,13 +80,13 @@ VALIDATE $? "helm installation"
 # curl -sS https://webinstall.dev/k9s | bash
 # VALIDATE $? "k9S installation"
 
-# k9s
-if ! echo $PATH | grep -q "$HOME/.local/bin"; then
-    export PATH=$PATH:$HOME/.local/bin
-    echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
-    source ~/.bashrc
-fi
+# # k9s
+# if ! echo $PATH | grep -q "$HOME/.local/bin"; then
+#     export PATH=$PATH:$HOME/.local/bin
+#     echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+#     source ~/.bashrc
+# fi
 
-# Verify k9s installation
-k9s version
-VALIDATE $? "k9s installation"
+# # Verify k9s installation
+# k9s version
+# VALIDATE $? "k9s installation"
