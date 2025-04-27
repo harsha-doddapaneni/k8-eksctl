@@ -76,6 +76,17 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 VALIDATE $? "helm installation"
 
-#k9s
-curl -sS https://webinstall.dev/k9s | bash
-VALIDATE $? "k9S installation"
+# #k9s
+# curl -sS https://webinstall.dev/k9s | bash
+# VALIDATE $? "k9S installation"
+
+# k9s
+if ! echo $PATH | grep -q "$HOME/.local/bin"; then
+    export PATH=$PATH:$HOME/.local/bin
+    echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+# Verify k9s installation
+k9s version
+VALIDATE $? "k9s installation"
